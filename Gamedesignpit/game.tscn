@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8cnftm3fg5pq"]
+
+[node name="game" type="Node2D"]
+position = Vector2(0, 3)
+
+[node name="player" type="CharacterBody2D" parent="."]
