@@ -14,3 +14,7 @@ config/name="Gamedesignpit"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[physics]
+
+2d/default_gravity=1500.0
