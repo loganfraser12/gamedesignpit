@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://h1pw8a5j8b5i"]
+[gd_scene load_steps=6 format=3 uid="uid://h1pw8a5j8b5i"]
 
-[ext_resource type="Texture2D" uid="uid://cng106av0ql4c" path="res://icon.svg" id="1_ef6dx"]
+[ext_resource type="Texture2D" uid="uid://de4010bn1418f" path="res://New Piskel.png" id="1_757g4"]
+[ext_resource type="Texture2D" uid="uid://bboln7sjw60hp" path="res://Assets/googly-a.png" id="2_xtp0h"]
+[ext_resource type="Texture2D" uid="uid://cqfkn47j70cap" path="res://Assets/googly-b.png" id="3_5043o"]
 
 [sub_resource type="GDScript" id="GDScript_s07on"]
 script/source = "extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -900.0
+const JUMP_VELOCITY = -850.0
 #the jump count
 var jump_count = 0
-var max_jump = 2
+var max_jump = 3
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
 
@@ -40,15 +42,26 @@ func _physics_process(delta):
 size = Vector2(128, 128)
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(0, -1)
+position = Vector2(-19, 5)
 script = SubResource("GDScript_s07on")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ef6dx")
+scale = Vector2(4.02159, 4.00983)
+texture = ExtResource("1_757g4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0fn41")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(2, -38)
+scale = Vector2(-0.0773018, -0.0478787)
+texture = ExtResource("2_xtp0h")
+
+[node name="Googly-b" type="Sprite2D" parent="."]
+position = Vector2(-18, -36)
+scale = Vector2(-0.0943313, 0.0695575)
+texture = ExtResource("3_5043o")
