@@ -13,9 +13,9 @@ position = Vector2(44, 189)
 scale = Vector2(1.78456, 0.174661)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_33rlb")]
-position = Vector2(-731, -13)
-scale = Vector2(0.414265, 1.39106)
+position = Vector2(-713, -22)
+scale = Vector2(0.534265, 1.39106)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("2_33rlb")]
-position = Vector2(949, -24)
+position = Vector2(772, -9)
 scale = Vector2(-0.538753, 1.46265)
