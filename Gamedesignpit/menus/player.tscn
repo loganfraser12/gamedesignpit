@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://crhifdpyadc0n"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_sbwqm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bb1kv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4ak4"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbwqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(592.455, 337.056)
+rotation = 3.14159
+scale = Vector2(1183.91, -675.112)
+texture = SubResource("CanvasTexture_bb1kv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_g4ak4")
+layout_mode = 0
+offset_left = 335.0
+offset_top = 262.0
+offset_right = 755.0
+offset_bottom = 419.0
+
+[node name="start_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "start"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/start_Button" to="." method="_on_start_button_pressed"]
