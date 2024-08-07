@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2ylgj8ywiaq3"]
+
+[ext_resource type="Script" path="res://knife_left.gd" id="1_s6ar4"]
+[ext_resource type="Texture2D" uid="uid://ccoiauo76age0" path="res://Assets/knife.png" id="2_vtuss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmkv2"]
+size = Vector2(62, 14)
+
+[node name="Knife_Left" type="Area2D"]
+script = ExtResource("1_s6ar4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cmkv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 2.27374e-13)
+rotation = -1.59584
+scale = Vector2(0.733388, 1.92076)
+texture = ExtResource("2_vtuss")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
