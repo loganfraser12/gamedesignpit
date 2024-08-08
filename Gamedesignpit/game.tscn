@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://h1pw8a5j8b5i" path="res://player.tscn" id="1_uq4hg"]
 [ext_resource type="PackedScene" uid="uid://0u1ji3oc6nia" path="res://platforms.tscn" id="2_33rlb"]
 [ext_resource type="Script" path="res://KnifeSpawner.gd" id="4_0ctbd"]
-[ext_resource type="PackedScene" uid="uid://dhxehbuuu22f1" path="res://knife_left.tscn" id="4_25ypw"]
+[ext_resource type="PackedScene" uid="uid://c2ylgj8ywiaq3" path="res://knife_right.tscn" id="4_mmo5w"]
 
 [node name="game" type="Node2D"]
 position = Vector2(0, 1)
@@ -24,60 +24,36 @@ scale = Vector2(0.534265, 1.39106)
 position = Vector2(772, -9)
 scale = Vector2(-0.538753, 1.46265)
 
-[node name="KnifeSpawner" type="Node2D" parent="."]
-position = Vector2(-1020, -98)
+[node name="Knife Spawner Riggt" type="Node2D" parent="."]
+position = Vector2(-958, -188)
 script = ExtResource("4_0ctbd")
+Knife = ExtResource("4_mmo5w")
 
-[node name="Timer" type="Timer" parent="KnifeSpawner"]
-wait_time = 0.5
+[node name="Timer" type="Timer" parent="Knife Spawner Riggt"]
 autostart = true
 
-[node name="KnifeSpawner3" type="Node2D" parent="."]
-position = Vector2(-1015, -242)
+[node name="Knife Spawner Left" type="Node2D" parent="."]
+position = Vector2(1000, -204)
 script = ExtResource("4_0ctbd")
 
-[node name="Timer" type="Timer" parent="KnifeSpawner3"]
-wait_time = 0.5
+[node name="Timer" type="Timer" parent="Knife Spawner Left"]
 autostart = true
 
-[node name="KnifeSpawner4" type="Node2D" parent="."]
-position = Vector2(-1017, -405)
+[node name="Knife Spawner Left2" type="Node2D" parent="."]
+position = Vector2(1004, -82)
 script = ExtResource("4_0ctbd")
 
-[node name="Timer" type="Timer" parent="KnifeSpawner4"]
-wait_time = 0.5
+[node name="Timer" type="Timer" parent="Knife Spawner Left2"]
 autostart = true
 
-[node name="KnifeSpawner5" type="Node2D" parent="."]
-position = Vector2(-934, 59)
+[node name="Knife Spawner Left3" type="Node2D" parent="."]
+position = Vector2(1012, 26)
 script = ExtResource("4_0ctbd")
 
-[node name="Timer" type="Timer" parent="KnifeSpawner5"]
-wait_time = 0.5
+[node name="Timer" type="Timer" parent="Knife Spawner Left3"]
 autostart = true
 
-[node name="KnifeSpawner6" type="Node2D" parent="."]
-position = Vector2(-1021, -743)
-script = ExtResource("4_0ctbd")
-
-[node name="Timer" type="Timer" parent="KnifeSpawner6"]
-wait_time = 0.5
-autostart = true
-
-[node name="KnifeSpawner7" type="Node2D" parent="."]
-position = Vector2(-1008, -518)
-script = ExtResource("4_0ctbd")
-
-[node name="Timer" type="Timer" parent="KnifeSpawner7"]
-wait_time = 0.5
-autostart = true
-
-[node name="Knife" parent="." instance=ExtResource("4_25ypw")]
-position = Vector2(1123, 6)
-
-[connection signal="timeout" from="KnifeSpawner/Timer" to="KnifeSpawner" method="_on_timer_timeout"]
-[connection signal="timeout" from="KnifeSpawner3/Timer" to="KnifeSpawner3" method="_on_timer_timeout"]
-[connection signal="timeout" from="KnifeSpawner4/Timer" to="KnifeSpawner4" method="_on_timer_timeout"]
-[connection signal="timeout" from="KnifeSpawner5/Timer" to="KnifeSpawner5" method="_on_timer_timeout"]
-[connection signal="timeout" from="KnifeSpawner6/Timer" to="KnifeSpawner6" method="_on_timer_timeout"]
-[connection signal="timeout" from="KnifeSpawner7/Timer" to="KnifeSpawner7" method="_on_timer_timeout"]
+[connection signal="timeout" from="Knife Spawner Riggt/Timer" to="Knife Spawner Riggt" method="_on_timer_timeout"]
+[connection signal="timeout" from="Knife Spawner Left/Timer" to="Knife Spawner Left" method="_on_timer_timeout"]
+[connection signal="timeout" from="Knife Spawner Left2/Timer" to="Knife Spawner Left2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Knife Spawner Left3/Timer" to="Knife Spawner Left3" method="_on_timer_timeout"]

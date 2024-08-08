@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://crhifdpyadc0n"]
+[gd_scene load_steps=5 format=3 uid="uid://crhifdpyadc0n"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_sbwqm"]
+[ext_resource type="Script" path="res://menus/Button.gd" id="2_50htm"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bb1kv"]
 
@@ -35,4 +36,14 @@ layout_mode = 2
 text = "start"
 flat = true
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 817.0
+offset_top = 188.0
+offset_right = 918.0
+offset_bottom = 218.0
+text = "keyboard layout"
+script = ExtResource("2_50htm")
+
 [connection signal="pressed" from="VBoxContainer/start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

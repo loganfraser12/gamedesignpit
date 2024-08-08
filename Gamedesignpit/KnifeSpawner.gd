@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var Knife = load("res://knife.tscn")
+@export var Knife = preload("res://knife_left.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

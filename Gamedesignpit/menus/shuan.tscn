@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3bb4oi1svewc"]
+
+[ext_resource type="Texture2D" uid="uid://gxlfexa76ufy" path="res://menus/keyboard digram.png" id="1_qyi32"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573.5, 323.5)
+scale = Vector2(1.20104, 1.18704)
+texture = ExtResource("1_qyi32")
