@@ -23,18 +23,24 @@ var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
 
 
 func _physics_process(delta):
+
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
-		if Inout.is_action_pressed(\"\")
-	if is_on_floor():
+		if Input.is_action_pressed(\"down\"):
+			velocity.y += gravity * delta * 2.5
+		else:
+			velocity.y += gravity * delta
+	else:
 		jump_count = 0
 	if dashing:
 		velocity.y = 0
+
+
 	# Handle jump.
 	if Input.is_action_just_pressed(\"ui_accept\") and jump_count < max_jump:
 		velocity.y = JUMP_VELOCITY
 		jump_count = jump_count + 1
+
 	if Input.is_action_just_pressed(\"dash\") and can_dash == true:
 		dashing = true
 		can_dash = false
@@ -52,6 +58,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	print (jump_count)
 
 func _on_dash_timer_timeout():
 	dashing = false
@@ -65,7 +72,7 @@ func _on_dash_again_timer_timeout():
 size = Vector2(128, 128)
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(-19, 5)
+position = Vector2(-12, 53)
 script = SubResource("GDScript_s07on")
 metadata/_edit_group_ = true
 
@@ -93,6 +100,14 @@ texture = ExtResource("3_5043o")
 wait_time = 0.2
 
 [node name="dash_again_timer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -108.0
+offset_top = -93.0
+offset_right = 106.0
+offset_bottom = -66.0
+value = 100.0
+rounded = true
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]
