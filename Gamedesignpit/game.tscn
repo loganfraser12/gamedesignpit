@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8cnftm3fg5pq"]
+[gd_scene load_steps=5 format=3 uid="uid://b8cnftm3fg5pq"]
 
 [ext_resource type="PackedScene" uid="uid://h1pw8a5j8b5i" path="res://player.tscn" id="1_uq4hg"]
 [ext_resource type="PackedScene" uid="uid://0u1ji3oc6nia" path="res://platforms.tscn" id="2_33rlb"]
 [ext_resource type="Script" path="res://KnifeSpawner.gd" id="4_0ctbd"]
 [ext_resource type="PackedScene" uid="uid://c2ylgj8ywiaq3" path="res://knife_right.tscn" id="4_mmo5w"]
-[ext_resource type="Texture2D" uid="uid://c6adf4lsmr862" path="res://menus/22456.jpg" id="5_6cp6s"]
 
 [node name="game" type="Node2D"]
 position = Vector2(0, 1)
@@ -34,7 +33,7 @@ Knife = ExtResource("4_mmo5w")
 autostart = true
 
 [node name="Knife Spawner Riggt3" type="Node2D" parent="."]
-position = Vector2(-956, -353)
+position = Vector2(-950, -270)
 script = ExtResource("4_0ctbd")
 Knife = ExtResource("4_mmo5w")
 
@@ -42,7 +41,7 @@ Knife = ExtResource("4_mmo5w")
 autostart = true
 
 [node name="Knife Spawner Riggt2" type="Node2D" parent="."]
-position = Vector2(-964, -506)
+position = Vector2(-1189, -376)
 script = ExtResource("4_0ctbd")
 Knife = ExtResource("4_mmo5w")
 
@@ -69,12 +68,6 @@ script = ExtResource("4_0ctbd")
 
 [node name="Timer" type="Timer" parent="Knife Spawner Left3"]
 autostart = true
-
-[node name="22456" type="Sprite2D" parent="."]
-z_index = -7
-position = Vector2(-17, -254)
-scale = Vector2(-4.22501, 2.85318)
-texture = ExtResource("5_6cp6s")
 
 [connection signal="timeout" from="Knife Spawner Riggt/Timer" to="Knife Spawner Riggt" method="_on_timer_timeout"]
 [connection signal="timeout" from="Knife Spawner Riggt3/Timer" to="Knife Spawner Riggt3" method="_on_timer_timeout"]
