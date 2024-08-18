@@ -63,7 +63,7 @@ script = ExtResource("4_0ctbd")
 autostart = true
 
 [node name="Knife Spawner Left3" type="Node2D" parent="."]
-position = Vector2(1024, 24)
+position = Vector2(1092, 5)
 script = ExtResource("4_0ctbd")
 
 [node name="Timer" type="Timer" parent="Knife Spawner Left3"]

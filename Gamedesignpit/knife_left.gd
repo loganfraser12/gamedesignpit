@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var SPEED = 15
+@export var SPEED = 13
 var player = null 
 
 func _process(delta):
@@ -9,4 +9,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "player":
-		pass
+		get_tree().change_scene_to_file("res://death.tscn")
