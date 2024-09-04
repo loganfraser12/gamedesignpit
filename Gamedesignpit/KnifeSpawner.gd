@@ -12,4 +12,4 @@ func _on_timer_timeout():
 	var b = Knife.instantiate()
 	add_child(b)
 	b.transform = self.transform
-	$Timer.start(randf_range(0.5, 3))
+	$Timer.start(randf_range(0.5, 5))

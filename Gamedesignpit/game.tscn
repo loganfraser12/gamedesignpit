@@ -41,7 +41,7 @@ Knife = ExtResource("4_mmo5w")
 autostart = true
 
 [node name="Knife Spawner Riggt2" type="Node2D" parent="."]
-position = Vector2(-1189, -376)
+position = Vector2(-1164, -464)
 script = ExtResource("4_0ctbd")
 Knife = ExtResource("4_mmo5w")
 
