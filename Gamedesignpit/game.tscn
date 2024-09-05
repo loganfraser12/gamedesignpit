@@ -1,13 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8cnftm3fg5pq"]
+[gd_scene load_steps=11 format=3 uid="uid://b8cnftm3fg5pq"]
 
+[ext_resource type="PackedScene" uid="uid://c32w5ndwxq5t" path="res://Assets/hud.tscn" id="1_gysaq"]
 [ext_resource type="PackedScene" uid="uid://h1pw8a5j8b5i" path="res://player.tscn" id="1_uq4hg"]
 [ext_resource type="PackedScene" uid="uid://0u1ji3oc6nia" path="res://platforms.tscn" id="2_33rlb"]
 [ext_resource type="Script" path="res://KnifeSpawner.gd" id="4_0ctbd"]
 [ext_resource type="PackedScene" uid="uid://c2ylgj8ywiaq3" path="res://knife_right.tscn" id="4_mmo5w"]
+[ext_resource type="AudioStream" uid="uid://c1dghw3gu4osu" path="res://AUDIO/relentless-fury-high-energy-heavy-metal-instrumental-230433.mp3" id="5_r2qq6"]
+
+[sub_resource type="Gradient" id="Gradient_2kuwt"]
+offsets = PackedFloat32Array(0.188525, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4epsk"]
+gradient = SubResource("Gradient_2kuwt")
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_jt0x1"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4yee4"]
+lifetime_randomness = 1.0
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape_scale = Vector3(1.64, 1, 1)
+direction = Vector3(65.8, 0, 0)
+spread = 180.0
+directional_velocity_min = -47.0
+directional_velocity_max = 47.75
+directional_velocity_curve = SubResource("CurveXYZTexture_jt0x1")
+gravity = Vector3(0, 30.85, 0)
+linear_accel_max = 6.95
+radial_accel_max = 100.0
+scale_max = 5.0
+color_ramp = SubResource("GradientTexture1D_4epsk")
 
 [node name="game" type="Node2D"]
 position = Vector2(0, 1)
 metadata/_edit_horizontal_guides_ = [-405.0]
+
+[node name="HUD" parent="." instance=ExtResource("1_gysaq")]
 
 [node name="player" parent="." instance=ExtResource("1_uq4hg")]
 position = Vector2(-103, 0)
@@ -25,7 +56,7 @@ position = Vector2(772, -9)
 scale = Vector2(-0.538753, 1.46265)
 
 [node name="Knife Spawner Riggt" type="Node2D" parent="."]
-position = Vector2(-958, -188)
+position = Vector2(-954, -81)
 script = ExtResource("4_0ctbd")
 Knife = ExtResource("4_mmo5w")
 
@@ -33,7 +64,7 @@ Knife = ExtResource("4_mmo5w")
 autostart = true
 
 [node name="Knife Spawner Riggt3" type="Node2D" parent="."]
-position = Vector2(-950, -270)
+position = Vector2(-947, -194)
 script = ExtResource("4_0ctbd")
 Knife = ExtResource("4_mmo5w")
 
@@ -41,7 +72,7 @@ Knife = ExtResource("4_mmo5w")
 autostart = true
 
 [node name="Knife Spawner Riggt2" type="Node2D" parent="."]
-position = Vector2(-1164, -464)
+position = Vector2(-948, -283)
 script = ExtResource("4_0ctbd")
 Knife = ExtResource("4_mmo5w")
 
@@ -49,14 +80,14 @@ Knife = ExtResource("4_mmo5w")
 autostart = true
 
 [node name="Knife Spawner Left" type="Node2D" parent="."]
-position = Vector2(1000, -204)
+position = Vector2(1038, -145)
 script = ExtResource("4_0ctbd")
 
 [node name="Timer" type="Timer" parent="Knife Spawner Left"]
 autostart = true
 
 [node name="Knife Spawner Left2" type="Node2D" parent="."]
-position = Vector2(1133, -84)
+position = Vector2(1192, -229)
 script = ExtResource("4_0ctbd")
 
 [node name="Timer" type="Timer" parent="Knife Spawner Left2"]
@@ -68,6 +99,26 @@ script = ExtResource("4_0ctbd")
 
 [node name="Timer" type="Timer" parent="Knife Spawner Left3"]
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_r2qq6")
+autoplay = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-118, -612)
+amount = 15423
+process_material = SubResource("ParticleProcessMaterial_4yee4")
+lifetime = 58.54
+speed_scale = 2.3
+randomness = 1.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(180, -699)
+amount = 73053
+process_material = SubResource("ParticleProcessMaterial_4yee4")
+lifetime = 58.54
+speed_scale = 2.3
+randomness = 1.0
 
 [connection signal="timeout" from="Knife Spawner Riggt/Timer" to="Knife Spawner Riggt" method="_on_timer_timeout"]
 [connection signal="timeout" from="Knife Spawner Riggt3/Timer" to="Knife Spawner Riggt3" method="_on_timer_timeout"]
