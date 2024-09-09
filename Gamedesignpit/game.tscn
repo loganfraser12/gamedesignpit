@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8cnftm3fg5pq"]
+[gd_scene load_steps=17 format=3 uid="uid://b8cnftm3fg5pq"]
 
 [ext_resource type="PackedScene" uid="uid://c32w5ndwxq5t" path="res://Assets/hud.tscn" id="1_gysaq"]
 [ext_resource type="PackedScene" uid="uid://h1pw8a5j8b5i" path="res://player.tscn" id="1_uq4hg"]
@@ -7,14 +7,39 @@
 [ext_resource type="PackedScene" uid="uid://c2ylgj8ywiaq3" path="res://knife_right.tscn" id="4_mmo5w"]
 [ext_resource type="AudioStream" uid="uid://c1dghw3gu4osu" path="res://AUDIO/relentless-fury-high-energy-heavy-metal-instrumental-230433.mp3" id="5_r2qq6"]
 
+[sub_resource type="Curve" id="Curve_slq1q"]
+min_value = -360.0
+max_value = 360.0
+bake_resolution = 271
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1e-05, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nm5s3"]
+curve = SubResource("Curve_slq1q")
+
 [sub_resource type="Gradient" id="Gradient_2kuwt"]
 offsets = PackedFloat32Array(0.188525, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 0.160784)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_4epsk"]
 gradient = SubResource("Gradient_2kuwt")
 
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_jt0x1"]
+
+[sub_resource type="Curve" id="Curve_d1ryn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yvp02"]
+curve = SubResource("Curve_d1ryn")
+
+[sub_resource type="Curve" id="Curve_q67ay"]
+max_value = 5.0
+_data = [Vector2(0, 1.86813), 0.0, 0.0, 0, 0, Vector2(0.246667, 1.20879), 0.0, 0.0, 0, 0, Vector2(0.453333, 1.26374), 0.0, 0.0, 0, 0, Vector2(1, 2.08791), -4.12088, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_bmyve"]
+curve = SubResource("Curve_q67ay")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4yee4"]
 lifetime_randomness = 1.0
@@ -23,16 +48,28 @@ particle_flag_rotate_y = true
 particle_flag_disable_z = true
 particle_flag_damping_as_friction = true
 emission_shape_scale = Vector3(1.64, 1, 1)
+angle_curve = SubResource("CurveTexture_nm5s3")
 direction = Vector3(65.8, 0, 0)
 spread = 180.0
 directional_velocity_min = -47.0
 directional_velocity_max = 47.75
 directional_velocity_curve = SubResource("CurveXYZTexture_jt0x1")
-gravity = Vector3(0, 30.85, 0)
-linear_accel_max = 6.95
 radial_accel_max = 100.0
 scale_max = 5.0
+scale_curve = SubResource("CurveTexture_bmyve")
 color_ramp = SubResource("GradientTexture1D_4epsk")
+emission_curve = SubResource("CurveTexture_yvp02")
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 1.0
+turbulence_noise_speed = Vector3(35.23, 0, 0)
+turbulence_noise_speed_random = 3.55
+turbulence_influence_max = 1.0
+turbulence_initial_displacement_max = 88.4
+collision_mode = 2
+collision_use_scale = true
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
 
 [node name="game" type="Node2D"]
 position = Vector2(0, 1)
@@ -42,6 +79,7 @@ metadata/_edit_horizontal_guides_ = [-405.0]
 
 [node name="player" parent="." instance=ExtResource("1_uq4hg")]
 position = Vector2(-103, 0)
+collision_layer = 2
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_33rlb")]
 position = Vector2(44, 189)
@@ -105,15 +143,18 @@ stream = ExtResource("5_r2qq6")
 autoplay = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(-118, -612)
-amount = 15423
+z_index = -5
+position = Vector2(-97, -991)
+scale = Vector2(51.0797, 19.1055)
+amount = 1
 process_material = SubResource("ParticleProcessMaterial_4yee4")
 lifetime = 58.54
 speed_scale = 2.3
 randomness = 1.0
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-position = Vector2(180, -699)
+position = Vector2(197, -1004)
+scale = Vector2(48.88, 18.84)
 amount = 73053
 process_material = SubResource("ParticleProcessMaterial_4yee4")
 lifetime = 58.54
