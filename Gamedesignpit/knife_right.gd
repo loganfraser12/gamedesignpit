@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var SPEED = 12
+@export var SPEED = 11
 var player = null 
 
 func _process(delta):

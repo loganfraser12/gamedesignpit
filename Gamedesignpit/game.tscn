@@ -79,10 +79,9 @@ metadata/_edit_horizontal_guides_ = [-405.0]
 
 [node name="player" parent="." instance=ExtResource("1_uq4hg")]
 position = Vector2(-103, 0)
-collision_layer = 2
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_33rlb")]
-position = Vector2(44, 189)
+position = Vector2(171, 206)
 scale = Vector2(1.78456, 0.174661)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_33rlb")]
@@ -110,7 +109,7 @@ Knife = ExtResource("4_mmo5w")
 autostart = true
 
 [node name="Knife Spawner Riggt2" type="Node2D" parent="."]
-position = Vector2(-948, -283)
+position = Vector2(-1048, -459)
 script = ExtResource("4_0ctbd")
 Knife = ExtResource("4_mmo5w")
 
@@ -144,7 +143,7 @@ autoplay = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = -5
-position = Vector2(-97, -991)
+position = Vector2(-332, -1022)
 scale = Vector2(51.0797, 19.1055)
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_4yee4")
@@ -153,9 +152,9 @@ speed_scale = 2.3
 randomness = 1.0
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-position = Vector2(197, -1004)
+position = Vector2(342, -1038)
 scale = Vector2(48.88, 18.84)
-amount = 73053
+amount = 37433
 process_material = SubResource("ParticleProcessMaterial_4yee4")
 lifetime = 58.54
 speed_scale = 2.3
