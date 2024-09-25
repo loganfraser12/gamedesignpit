@@ -1,22 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3bb4oi1svewc"]
 
 [ext_resource type="Script" path="res://menus/shuan.gd" id="1_5x1cg"]
-[ext_resource type="Texture2D" uid="uid://gxlfexa76ufy" path="res://menus/keyboard digram.png" id="1_qyi32"]
+[ext_resource type="Texture2D" uid="uid://dghtq0i3lesp1" path="res://Assets/keyboard digram.png" id="2_13v4b"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(-2, -11)
 script = ExtResource("1_5x1cg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(573.5, 323.5)
+position = Vector2(575, 337)
 scale = Vector2(1.20104, 1.18704)
-texture = ExtResource("1_qyi32")
+texture = ExtResource("2_13v4b")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 0.741176, 1)
-offset_left = 768.0
-offset_top = 324.0
-offset_right = 849.0
-offset_bottom = 344.0
+offset_left = 783.0
+offset_top = 331.0
+offset_right = 864.0
+offset_bottom = 362.0
 text = "go back"
 flat = true
 

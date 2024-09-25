@@ -78,7 +78,7 @@ metadata/_edit_horizontal_guides_ = [-405.0]
 [node name="HUD" parent="." instance=ExtResource("1_gysaq")]
 
 [node name="player" parent="." instance=ExtResource("1_uq4hg")]
-position = Vector2(-103, 0)
+position = Vector2(-103, 2)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_33rlb")]
 position = Vector2(171, 206)
@@ -101,19 +101,11 @@ Knife = ExtResource("4_mmo5w")
 autostart = true
 
 [node name="Knife Spawner Riggt3" type="Node2D" parent="."]
-position = Vector2(-947, -194)
+position = Vector2(-1140, -268)
 script = ExtResource("4_0ctbd")
 Knife = ExtResource("4_mmo5w")
 
 [node name="Timer" type="Timer" parent="Knife Spawner Riggt3"]
-autostart = true
-
-[node name="Knife Spawner Riggt2" type="Node2D" parent="."]
-position = Vector2(-1048, -459)
-script = ExtResource("4_0ctbd")
-Knife = ExtResource("4_mmo5w")
-
-[node name="Timer" type="Timer" parent="Knife Spawner Riggt2"]
 autostart = true
 
 [node name="Knife Spawner Left" type="Node2D" parent="."]
@@ -152,9 +144,9 @@ speed_scale = 2.3
 randomness = 1.0
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-position = Vector2(342, -1038)
+position = Vector2(289, -1110)
 scale = Vector2(48.88, 18.84)
-amount = 37433
+amount = 1393
 process_material = SubResource("ParticleProcessMaterial_4yee4")
 lifetime = 58.54
 speed_scale = 2.3
@@ -162,7 +154,6 @@ randomness = 1.0
 
 [connection signal="timeout" from="Knife Spawner Riggt/Timer" to="Knife Spawner Riggt" method="_on_timer_timeout"]
 [connection signal="timeout" from="Knife Spawner Riggt3/Timer" to="Knife Spawner Riggt3" method="_on_timer_timeout"]
-[connection signal="timeout" from="Knife Spawner Riggt2/Timer" to="Knife Spawner Riggt2" method="_on_timer_timeout"]
 [connection signal="timeout" from="Knife Spawner Left/Timer" to="Knife Spawner Left" method="_on_timer_timeout"]
 [connection signal="timeout" from="Knife Spawner Left2/Timer" to="Knife Spawner Left2" method="_on_timer_timeout"]
 [connection signal="timeout" from="Knife Spawner Left3/Timer" to="Knife Spawner Left3" method="_on_timer_timeout"]
